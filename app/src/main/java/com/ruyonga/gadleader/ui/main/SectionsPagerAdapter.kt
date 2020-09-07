@@ -1,39 +1,39 @@
 package com.ruyonga.gadleader.ui.main
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.ruyonga.gadleader.R
+import com.ruyonga.gadleader.lboard.LearningBoard
+import com.ruyonga.gadleader.skillBoard.Skillsiq_leader
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
     R.string.tab_text_2
 )
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
-class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
-    FragmentPagerAdapter(fm) {
+class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return when (position) {
-            1 -> LearningBoard.newInstance()
-            2 -> Skillsiq_leader.newInstance()
-            else -> LearningBoard.newInstance()
-        }
-    }
-
-    override fun getPageTitle(position: Int): CharSequence? {
-        return context.resources.getString(TAB_TITLES[position])
-    }
 
     override fun getCount(): Int {
-        // Show 2 total pages.
         return TAB_TITLES.size
+    }
+
+    override fun getItem(position: Int): Fragment {
+        return when (position) {
+            1 -> LearningBoard()
+            2 -> Skillsiq_leader()
+            else -> LearningBoard()
+        }
+    }
+    override fun getPageTitle(position: Int): CharSequence {
+        return when (position) {
+            0 -> "Learning Leaders"
+            1 -> "Skill IQ Leaders"
+            else -> {
+                return "Learning Leaders"
+            }
+        }
     }
 }

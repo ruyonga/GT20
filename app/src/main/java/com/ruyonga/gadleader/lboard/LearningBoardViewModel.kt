@@ -1,4 +1,4 @@
-package com.ruyonga.gadleader.ui.main
+package com.ruyonga.gadleader.lboard
 
 import androidx.lifecycle.ViewModel
 

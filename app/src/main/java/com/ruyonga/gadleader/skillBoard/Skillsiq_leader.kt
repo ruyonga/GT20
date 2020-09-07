@@ -1,4 +1,4 @@
-package com.ruyonga.gadleader.ui.main
+package com.ruyonga.gadleader.skillBoard
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -10,9 +10,6 @@ import com.ruyonga.gadleader.R
 
 class Skillsiq_leader : Fragment() {
 
-    companion object {
-        fun newInstance() = Skillsiq_leader()
-    }
 
     private lateinit var viewModel: SkillsiqLeaderViewModel
 
